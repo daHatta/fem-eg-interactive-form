@@ -1,0 +1,13 @@
+{
+  "name": "interactive-card-details-form-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the Interactive card details form coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "sass --watch ./css/main.scss ./css/main.css"
+  },
+  "keywords": [],
+  "author": "Heiko John",
+  "license": "ISC"
+}
