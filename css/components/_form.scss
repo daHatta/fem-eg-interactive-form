@@ -1,0 +1,87 @@
+@use "../abstracts" as *;
+
+.form__box {
+    margin-block-start: 2em;
+    padding-inline: 8px;
+    width: 100%;
+}
+
+.form__label {
+    display: block;
+    color: $clr-ntl-very-dark-violet;
+}
+
+.form__label,
+.form__fslegend {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.form__grid {
+    display: grid;
+    grid-template-columns: 152px 164px;
+}
+
+.form__date-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.form__date-box input {
+    width: 72px;
+}
+
+input[name="cvc"] {
+    width: 140px;
+}
+
+.btn {
+    border: none;
+    border-radius: 8px;
+    display: block;
+    color: $clr-ntl-white;
+    background-color: $clr-ntl-very-dark-violet;
+    text-align: center;
+    padding-block: .875em;
+    padding-inline: auto;
+    width: 100%;
+    cursor: pointer;
+}
+
+// Response if passed
+.response__box {
+    text-align: center;
+}
+
+.response__image {
+    margin-block-start: 1em;
+    margin-inline: auto;
+}
+
+.response__title {
+    margin-block-start: 1.25em;
+    color: $clr-ntl-very-dark-violet;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 22px;
+}
+
+.response__message  {
+    color: $clr-ntl-dark-grayish-violet;
+    margin-block-start: 1em;
+    font-size: 16px;
+}
+
+.response__btn {
+    margin-block-start: 2em;
+}
+
+
+@media screen and (min-width: 1110px) {
+
+    .form__box {
+        width: 397px;
+    }
+
+}

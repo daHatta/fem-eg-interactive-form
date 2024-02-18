@@ -1,0 +1,93 @@
+@use "../abstracts" as *;
+
+.card__box {
+    display: flex;
+    flex-direction: column-reverse;
+    color: $clr-ntl-white;
+}
+
+.card {
+    width: 286px;
+    height: 157px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-shadow: 0px 15px 32px -3px rgba(97, 97, 97, 0.4);
+    border-radius: 6px;
+}
+
+.card--front {
+    background-image: url("../../images/bg-card-front.png");
+    margin-top: -63px;
+    z-index: 2;
+    padding-inline-start: 1.25em;
+    padding-block-start: 1.135em;
+    padding-inline-end: 1.375em;
+}
+
+.card--back {
+    background-image: url("../../images/bg-card-back.png");
+    margin-inline-start: auto;
+}
+
+.card__image {
+    height: 1.875em;
+    object-fit: cover;
+}
+
+.card__number {
+    font-size: $fs-500;
+    margin-block-start: 2em;
+    line-height: 1.1;
+    word-spacing: 10px;
+}
+
+.card__owner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-block-start: 1.25em;
+    font-size: .75rem;
+}
+
+.owner__name {
+    text-transform: uppercase;
+}
+
+.card__verification-num {
+    margin-block-start: 6.125em;
+    margin-inline: 2.625em;
+    padding: 4px;
+    padding-inline-end: 8px;
+    background-color: rgb(180, 180, 180);
+    border-radius: 4px;
+    font-size: .625rem;
+    text-align: right;
+    line-height: 2.5;
+}
+
+
+@media screen and (min-width: 1110px) {
+    
+    .card__box {
+        flex-direction: column;
+        color: $clr-ntl-white;
+        gap: 37px;
+        width: 541px;
+    }
+
+    .card {
+        width: 447px;
+        height: 245px;
+        border-radius: 10px;
+    }
+
+    .card--front {
+        background-image: url("../../images/bg-card-front.png");
+        margin-top: 0;
+        margin-inline-end: auto;
+    }
+
+    .card--back {
+        margin-inline-start: 94px;
+    }
+}
