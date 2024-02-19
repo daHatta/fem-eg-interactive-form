@@ -19,7 +19,7 @@ body::before {
 }
 
 main {
-    padding-block-start: 2em;
+    padding-block-start: 1.75em;
     display: flex;
     flex-direction: column;
 }
@@ -28,11 +28,6 @@ fieldset {
     border: none;
     padding: 0;
     margin: 0;
-}
-
-label,
-legend {
-    margin-block-end: .5em;
 }
 
 input {
@@ -58,14 +53,15 @@ input[type="text"],
 input[type="number"] {
     display: flex;
     border-radius: 8px;
-    border: 1px solid $clr-ntl-light-grayish-violet;
-    padding: .375em .5em;
-    font-size: 14px;
+    border: 1px solid $clr-ntl-dark-grayish-violet;
+    padding-block: .625em .563em;
+    font-size: 1rem;
+    padding-inline: .563em;
 }
 
 input::placeholder {
-    color: $clr-ntl-light-grayish-violet;
-    font-size: .875rem;
+    color: $clr-ntl-dark-grayish-violet;
+    font-size: 1rem;
 }
 
 

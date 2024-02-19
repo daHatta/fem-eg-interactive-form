@@ -19,9 +19,9 @@
     background-image: url("../../images/bg-card-front.png");
     margin-top: -63px;
     z-index: 2;
-    padding-inline-start: 1.25em;
-    padding-block-start: 1.135em;
-    padding-inline-end: 1.375em;
+    padding-inline-start: 1.063em;
+    padding-block-start: 1.063em;
+    padding-inline-end: 1.188em;
 }
 
 .card--back {
@@ -29,40 +29,51 @@
     margin-inline-start: auto;
 }
 
+.card__image-box {
+    height: 30px;
+}
+
 .card__image {
-    height: 1.875em;
+    height: 30px;
     object-fit: cover;
 }
 
 .card__number {
     font-size: $fs-500;
-    margin-block-start: 2em;
+    margin-block-start: 2.125em;
     line-height: 1.1;
     word-spacing: 10px;
+    font-weight: $fw-400;
 }
 
 .card__owner {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-block-start: 1.25em;
-    font-size: .75rem;
+    margin-block-start: 1.5em;
+    font-size: .625rem;
 }
 
 .owner__name {
     text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: $fw-300;
 }
 
 .card__verification-num {
-    margin-block-start: 6.125em;
-    margin-inline: 2.625em;
+    margin-block-start: 6.438em;
+    margin-inline: auto;
+    height: 30px;
     padding: .25em;
-    padding-inline-end: .5em;
-    background-color: rgb(180, 180, 180);
+    padding-inline-end: 1em;
+    background-color: hsl(210, 12%, 71%);
     border-radius: 4px;
     font-size: .625rem;
     text-align: right;
     line-height: 2.5;
+    width: 240px;
+    font-weight: 300;
+    letter-spacing: 1px;
 }
 
 
