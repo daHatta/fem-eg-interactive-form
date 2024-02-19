@@ -48,18 +48,17 @@
           <div class="input__box">
             <label for="username" class="input__label">Cardholder Name</label>
             <input id="username" name="username" type="text" placeholder="e.g. Jane Appleseed">
-            <span class="input__error-msg"></span>
           </div>
           <div class="input__box">
             <label for="cardNo" class="input__label">Card Number</label>
-            <input id="cardNo" name="cardno" type="text" placeholder="e.g. 1234 5678 9123 0000">
-            <span class="input__error-msg"></span>
+            <input id="cardNo" class="input--error" name="cardno" type="text" placeholder="e.g. 1234 5678 9123 0000">
+            <span class="input__error-msg">Error</span>
           </div>
-          <div class="input__box">
+          <div class="fieldset__box">
             <div class="fieldset__grid">
               <fieldset>
-                <legend class="form__fslegend">Exp. Date (MM/YY)</legend>
-                <div class="form__date-box">
+                <legend class="fieldset__legend">Exp. Date (MM/YY)</legend>
+                <div class="date__box">
                   <div class="input__box">
                     <label for="month" class="input__label visually-hidden">Month</label>
                     <input id="month" name="month" type="number" placeholder="MM">
@@ -69,12 +68,12 @@
                     <input id="year" name="year" type="number" placeholder="YY">
                   </div>
                 </div>
-                <span class="input__error-msg"></span>
+                <span class="input__error-msg">Fehler</span>
               </fieldset>
               <div class="input__box">
-                <label for="cvcNo" class="form__label">CVC</label>
+                <label for="cvcNo" class="input__label">CVC</label>
                 <input id="cvcNo" name="cvcno" type="number" placeholder="e.g. 123">
-                <span class="form__error-message"></span>
+                <span class="input__error-msg">Fehler</span>
               </div>
             </div>
           </div>

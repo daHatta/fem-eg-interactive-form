@@ -101,7 +101,20 @@ fieldset {
 
 label,
 legend {
-  margin-block-end: 8px;
+  margin-block-end: 0.5em;
+}
+
+input {
+  outline: none;
+}
+
+input[type=text]:active,
+input[type=text]:focus-visible,
+input[type=number]:active,
+input[type=number]:focus-visible {
+  background: linear-gradient(white, white) padding-box, linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%)) border-box;
+  border-radius: 8px;
+  border: 1px solid transparent;
 }
 
 input[type=text] {
@@ -113,13 +126,13 @@ input[type=number] {
   display: flex;
   border-radius: 8px;
   border: 1px solid hsl(270, 3%, 87%);
-  padding: 6px 8px;
+  padding: 0.375em 0.5em;
   font-size: 14px;
 }
 
 input::placeholder {
   color: hsl(270, 3%, 87%);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 @media screen and (min-width: 1110px) {
@@ -230,8 +243,8 @@ input::placeholder {
 .card__verification-num {
   margin-block-start: 6.125em;
   margin-inline: 2.625em;
-  padding: 4px;
-  padding-inline-end: 8px;
+  padding: 0.25em;
+  padding-inline-end: 0.5em;
   background-color: rgb(180, 180, 180);
   border-radius: 4px;
   font-size: 0.625rem;
@@ -243,7 +256,7 @@ input::placeholder {
   .card__box {
     flex-direction: column;
     color: hsl(0, 0%, 100%);
-    gap: 37px;
+    gap: 2.25em;
     width: 541px;
   }
   .card {
@@ -257,43 +270,59 @@ input::placeholder {
     margin-inline-end: auto;
   }
   .card--back {
-    margin-inline-start: 94px;
+    margin-inline-start: 5.875;
   }
 }
 .form__box {
   margin-block-start: 2em;
-  padding-inline: 8px;
+  padding-inline: 0.5em;
   width: 100%;
 }
 
-.form__label {
+.input__box {
+  margin-block-end: 1.25em;
+}
+
+.input__label {
   display: block;
   color: hsl(278, 68%, 11%);
 }
 
-.form__label,
-.form__fslegend {
+.input__label,
+.fieldset__legend {
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
+  line-height: 1.1;
 }
 
-.form__grid {
+.fieldset__box {
+  margin-block-end: 1.25em;
+}
+
+.fieldset__box .input__box {
+  margin-block-end: 0;
+}
+
+.fieldset__grid {
   display: grid;
   grid-template-columns: 152px 164px;
+  gap: 1.25em;
 }
 
-.form__date-box {
+.date__box {
   display: flex;
   flex-direction: row;
+  gap: 0.625em;
 }
 
-.form__date-box input {
+.date__box input#month,
+.date__box input#year {
   width: 72px;
 }
 
-input[name=cvc] {
-  width: 140px;
+.input__box input#cvcNo {
+  width: calc(100% - 18px);
 }
 
 .btn {
@@ -322,18 +351,31 @@ input[name=cvc] {
   margin-block-start: 1.25em;
   color: hsl(278, 68%, 11%);
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 22px;
+  letter-spacing: 0.125rem;
+  font-size: 1.375rem;
 }
 
 .response__message {
   color: hsl(279, 6%, 55%);
   margin-block-start: 1em;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .response__btn {
   margin-block-start: 2em;
+}
+
+.input__error-msg {
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  color: hsl(0, 100%, 66%);
+  height: 20px;
+  font-size: 0.625rem;
+}
+
+input.input--error {
+  border: 1px solid hsl(0, 100%, 66%);
 }
 
 @media screen and (min-width: 1110px) {

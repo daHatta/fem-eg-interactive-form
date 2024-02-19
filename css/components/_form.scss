@@ -2,38 +2,54 @@
 
 .form__box {
     margin-block-start: 2em;
-    padding-inline: 8px;
+    padding-inline: .5em;
     width: 100%;
 }
 
-.form__label {
+.input__box {
+    margin-block-end: 1.25em;
+}
+
+.input__label {
     display: block;
     color: $clr-ntl-very-dark-violet;
 }
 
-.form__label,
-.form__fslegend {
+.input__label,
+.fieldset__legend {
     text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 700;
+    font-size: .75rem;
+    font-weight: $fw-700;
+    line-height: 1.1;
 }
 
-.form__grid {
+.fieldset__box {
+    margin-block-end: 1.25em;
+}
+
+.fieldset__box .input__box {
+    margin-block-end: 0;
+}
+
+.fieldset__grid {
     display: grid;
     grid-template-columns: 152px 164px;
+    gap: 1.25em;
 }
 
-.form__date-box {
+.date__box {
     display: flex;
     flex-direction: row;
+    gap: .625em;
 }
 
-.form__date-box input {
+.date__box input#month,
+.date__box input#year {
     width: 72px;
 }
 
-input[name="cvc"] {
-    width: 140px;
+.input__box input#cvcNo {
+    width: calc(100% - 18px);
 }
 
 .btn {
@@ -63,18 +79,32 @@ input[name="cvc"] {
     margin-block-start: 1.25em;
     color: $clr-ntl-very-dark-violet;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 22px;
+    letter-spacing: 0.125rem;
+    font-size: 1.375rem;
 }
 
 .response__message  {
     color: $clr-ntl-dark-grayish-violet;
     margin-block-start: 1em;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .response__btn {
     margin-block-start: 2em;
+}
+
+// Error Message
+.input__error-msg {
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    color: $clr-pry-input-red-errors;
+    height: 20px;
+    font-size: .625rem;
+}
+
+input.input--error {
+    border: 1px solid $clr-pry-input-red-errors;
 }
 
 

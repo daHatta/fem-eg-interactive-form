@@ -32,7 +32,22 @@ fieldset {
 
 label,
 legend {
-    margin-block-end: 8px;
+    margin-block-end: .5em;
+}
+
+input {
+    outline: none;
+}
+
+// Hack for active borders on input fields
+input[type="text"]:active,
+input[type="text"]:focus-visible,
+input[type="number"]:active,
+input[type="number"]:focus-visible {
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(to right, $clr-pry-input-border-active) border-box;
+    border-radius: 8px;
+    border: 1px solid transparent;
 }
 
 input[type="text"] {
@@ -44,13 +59,13 @@ input[type="number"] {
     display: flex;
     border-radius: 8px;
     border: 1px solid $clr-ntl-light-grayish-violet;
-    padding: 6px 8px;
+    padding: .375em .5em;
     font-size: 14px;
 }
 
 input::placeholder {
     color: $clr-ntl-light-grayish-violet;
-    font-size: 14px;
+    font-size: .875rem;
 }
 
 

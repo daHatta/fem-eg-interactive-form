@@ -56,8 +56,8 @@
 .card__verification-num {
     margin-block-start: 6.125em;
     margin-inline: 2.625em;
-    padding: 4px;
-    padding-inline-end: 8px;
+    padding: .25em;
+    padding-inline-end: .5em;
     background-color: rgb(180, 180, 180);
     border-radius: 4px;
     font-size: .625rem;
@@ -71,7 +71,7 @@
     .card__box {
         flex-direction: column;
         color: $clr-ntl-white;
-        gap: 37px;
+        gap: 2.25em;
         width: 541px;
     }
 
@@ -88,6 +88,6 @@
     }
 
     .card--back {
-        margin-inline-start: 94px;
+        margin-inline-start: 5.875;
     }
 }

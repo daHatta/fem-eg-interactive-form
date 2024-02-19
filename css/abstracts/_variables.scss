@@ -10,7 +10,7 @@ $mq-desktop: 1440px;
 
 // ### Primary
 
-$clr-pry-input-border-active: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+$clr-pry-input-border-active: hsl(249, 99%, 64%), hsl(278, 94%, 30%);
 $clr-pry-input-red-errors: hsl(0, 100%, 66%);
 
 // ### Neutral
@@ -32,3 +32,4 @@ $fs-500: 1.125rem;  // 18px
 $ff-grotesk: "Space Grotesk", sans-serif;
 
 $fw-500: 500;
+$fw-700: 700;
