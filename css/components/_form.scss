@@ -81,7 +81,6 @@
 }
 
 .response__image {
-    margin-block-start: 1em;
     margin-inline: auto;
 }
 
@@ -89,18 +88,20 @@
     margin-block-start: 1.25em;
     color: $clr-ntl-very-dark-violet;
     text-transform: uppercase;
-    letter-spacing: 0.125rem;
-    font-size: 1.375rem;
+    letter-spacing: 2px;
+    font-size: 1.75rem;
+    font-weight: $fw-500;
 }
 
 .response__message  {
     color: $clr-ntl-dark-grayish-violet;
-    margin-block-start: 1em;
-    font-size: 1rem;
+    margin-block-start: .875em;
+    font-size: 1.125rem;
+    letter-spacing: .0125rem;
 }
 
 .response__btn {
-    margin-block-start: 2em;
+    margin-block-start: 2.563em;
 }
 
 // Error Message
@@ -122,6 +123,42 @@ input.input--error {
 
     .form__box {
         width: 397px;
+        margin-block-start: 2px;
     }
+
+    .input__box {
+        margin-block-end: 1.625em;
+    }
+
+    .input__label,
+    .fieldset__legend {
+        letter-spacing: .125rem;
+        word-spacing: 0px;
+        margin-block-end: .625em;
+    }
+
+    .fieldset__grid {
+        display: grid;
+        grid-template-columns: 170px 194px;
+        gap: 1.25em;
+    }
+
+    .date__box {
+        gap: .563em;
+    }
+
+    .date__box input#month,
+    .date__box input#year {
+        width: 80px;
+    }
+
+    .input__box input#cvcNo {
+        width: calc(100% - 5px);
+    }
+
+    .form__btn {
+        margin-block-start: 1em;
+    }
+    
 
 }

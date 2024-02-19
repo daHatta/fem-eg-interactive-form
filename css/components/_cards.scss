@@ -52,12 +52,12 @@
     justify-content: space-between;
     margin-block-start: 1.5em;
     font-size: .625rem;
+    font-weight: $fw-300;
+    letter-spacing: 1px;
 }
 
 .owner__name {
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: $fw-300;
 }
 
 .card__verification-num {
@@ -72,7 +72,7 @@
     text-align: right;
     line-height: 2.5;
     width: 240px;
-    font-weight: 300;
+    font-weight: $fw-300;
     letter-spacing: 1px;
 }
 
@@ -82,7 +82,7 @@
     .card__box {
         flex-direction: column;
         color: $clr-ntl-white;
-        gap: 2.25em;
+        gap: 2em;
         width: 541px;
     }
 
@@ -93,12 +93,49 @@
     }
 
     .card--front {
-        background-image: url("../../images/bg-card-front.png");
         margin-top: 0;
         margin-inline-end: auto;
+        padding-inline-start: 1.75em;
+        padding-block-start: 1.5em;
+        padding-inline-end: 1.875em;
     }
 
     .card--back {
         margin-inline-start: 5.875;
+    }
+
+    .card__image-box {
+        height: 47px;
+    }
+
+    .card__image {
+        height: 47px;
+    }
+
+    .card__number {
+        margin-block-start: 2.438em;
+        font-size: 1.75rem;
+        letter-spacing: .2rem;
+        font-weight: $fw-400;
+        word-spacing: -1px;
+    }
+
+    .card__owner {
+        margin-block-start: 1.938em;
+        font-size: .875rem;
+        letter-spacing: .2rem;
+    }
+
+    .card__verification-num {
+        margin-block-start: 7.75em;
+        height: 38px;
+        padding: .5em;
+        padding-inline-end: 1.125em;
+        font-size: .813rem;
+        text-align: right;
+        line-height: 1.75rem;
+        width: 363px;
+        font-weight: $fw-300;
+        letter-spacing: .2rem;
     }
 }

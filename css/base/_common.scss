@@ -53,14 +53,15 @@ input[type="text"],
 input[type="number"] {
     display: flex;
     border-radius: 8px;
-    border: 1px solid $clr-ntl-dark-grayish-violet;
+    border: 1px solid $clr-ntl-light-grayish-violet;
     padding-block: .625em .563em;
     font-size: 1rem;
     padding-inline: .563em;
+    text-indent: 5px;
 }
 
 input::placeholder {
-    color: $clr-ntl-dark-grayish-violet;
+    color: $clr-ntl-light-grayish-violet;
     font-size: 1rem;
 }
 
@@ -80,10 +81,24 @@ input::placeholder {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        gap: 6em;
+        gap: 6.625em;
     }
     
     footer {
         padding-block-start: 1em;
     }
+
+    input[type="text"],
+    input[type="number"] {
+        font-size: 1.125rem;
+        text-indent: .375rem;
+        padding-block: .5em .438em;
+    }
+
+    input::placeholder {
+        color: $clr-ntl-light-grayish-violet;
+        font-size: 1.125rem;
+        padding-block: .5em .5em;
+    }
+
 }
