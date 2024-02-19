@@ -78,7 +78,7 @@ body::before {
   position: absolute;
   display: block;
   content: "";
-  background-image: url("../../images/bg-main-mobile.png");
+  background-image: url("../images/bg-main-mobile.png");
   background-position: top center;
   background-color: hsl(278, 68%, 11%);
   background-repeat: no-repeat;
@@ -141,7 +141,7 @@ input::placeholder {
 
 @media screen and (min-width: 1110px) {
   body::before {
-    background-image: url("../../images/bg-main-desktop.png");
+    background-image: url("../images/bg-main-desktop.png");
     background-position: top left;
     width: 483px;
     min-height: 100vh;
@@ -218,7 +218,7 @@ input::placeholder {
 }
 
 .card--front {
-  background-image: url("../../images/bg-card-front.png");
+  background-image: url("../images/bg-card-front.png");
   margin-top: -63px;
   z-index: 2;
   padding-inline-start: 1.063em;
@@ -227,7 +227,7 @@ input::placeholder {
 }
 
 .card--back {
-  background-image: url("../../images/bg-card-back.png");
+  background-image: url("../images/bg-card-back.png");
   margin-inline-start: auto;
 }
 
