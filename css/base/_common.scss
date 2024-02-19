@@ -35,6 +35,8 @@ input {
 }
 
 // Hack for active borders on input fields
+input[type="text"]:hover,
+input[type="number"]:hover,
 input[type="text"]:active,
 input[type="text"]:focus-visible,
 input[type="number"]:active,
@@ -43,6 +45,11 @@ input[type="number"]:focus-visible {
                 linear-gradient(to right, $clr-pry-input-border-active) border-box;
     border-radius: 8px;
     border: 1px solid transparent;
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover {
+    cursor: pointer;
 }
 
 input[type="text"] {

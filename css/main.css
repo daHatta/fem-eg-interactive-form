@@ -103,6 +103,8 @@ input {
   outline: none;
 }
 
+input[type=text]:hover,
+input[type=number]:hover,
 input[type=text]:active,
 input[type=text]:focus-visible,
 input[type=number]:active,
@@ -110,6 +112,11 @@ input[type=number]:focus-visible {
   background: linear-gradient(white, white) padding-box, linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%)) border-box;
   border-radius: 8px;
   border: 1px solid transparent;
+}
+
+input[type=text]:hover,
+input[type=number]:hover {
+  cursor: pointer;
 }
 
 input[type=text] {
@@ -206,7 +213,7 @@ input::placeholder {
   height: 157px;
   background-repeat: no-repeat;
   background-size: contain;
-  box-shadow: 0px 15px 32px -3px rgba(97, 97, 97, 0.4);
+  box-shadow: 0px 15px 32px -3px rgba(33, 9, 47, 0.2);
   border-radius: 6px;
 }
 
