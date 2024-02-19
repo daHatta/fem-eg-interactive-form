@@ -9,7 +9,7 @@ body::before {
     position: absolute;
     display: block;
     content: "";
-    background-image: url("../../images/bg-main-mobile.png");
+    background-image: url("../images/bg-main-mobile.png");
     background-position: top center;
     background-color: $clr-ntl-very-dark-violet;
     background-repeat: no-repeat;
@@ -76,7 +76,7 @@ input::placeholder {
 @media screen and (min-width: 1110px) {
 
     body::before {
-        background-image: url("../../images/bg-main-desktop.png");
+        background-image: url("../images/bg-main-desktop.png");
         background-position: top left;
         width: 483px;
         min-height: 100vh;
