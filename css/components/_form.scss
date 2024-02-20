@@ -51,7 +51,7 @@
 }
 
 .input__box input#cvcNo {
-    width: calc(100% - 18px);
+    width: calc(171px - 1.126em);
 }
 
 .btn {
@@ -153,7 +153,7 @@ input.input--error {
     }
 
     .input__box input#cvcNo {
-        width: calc(100% - 5px);
+        width: calc(100% - 6px);
     }
 
     .form__btn {
