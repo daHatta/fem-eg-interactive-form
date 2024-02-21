@@ -35,7 +35,9 @@
           </div>
           <div class="card__owner">
             <div class="owner__name">Jane Appleseed</div>
-            <div class="card__expire">00/00</div>
+            <div class="card__expire">
+              <span class="card__month">00</span>/<span class="card__year">00</span>
+            </div>
           </div>
         </div>
         <div class="card card--back">
@@ -47,12 +49,12 @@
           <h1 class="visually-hidden">Example of an interactive Web Form</h1>
           <div class="input__box">
             <label for="username" class="input__label">Cardholder Name</label>
-            <input id="username" name="username" type="text" placeholder="e.g. Jane Appleseed">
+            <input id="username" name="username" type="text" value="" placeholder="e.g. Jane Appleseed">
             <span class="input__error-msg visually-hidden">Error</span>
           </div>
           <div class="input__box">
             <label for="cardNo" class="input__label">Card Number</label>
-            <input id="cardNo" class="" name="cardno" type="text" placeholder="e.g. 1234 5678 9123 0000">
+            <input id="cardNo" maxlength="19" name="cardno" type="text" placeholder="e.g. 1234 5678 9123 0000">
             <span class="input__error-msg visually-hidden">Error</span>
           </div>
           <div class="fieldset__box">
@@ -62,18 +64,18 @@
                 <div class="date__box">
                   <div class="input__box">
                     <label for="month" class="input__label visually-hidden">Month</label>
-                    <input id="month" name="month" type="number" placeholder="MM">
+                    <input id="month" maxlength="2" name="month" type="text" placeholder="MM">
                   </div>
                   <div class="input__box">
                     <label for="year" class="input__label visually-hidden">Year</label>
-                    <input id="year" name="year" type="number" placeholder="YY">
+                    <input id="year" maxlength="2" name="year" type="text" placeholder="YY">
                   </div>
                 </div>
                 <span class="input__error-msg visually-hidden">Error</span>
               </fieldset>
               <div class="input__box">
                 <label for="cvcNo" class="input__label">CVC</label>
-                <input id="cvcNo" name="cvcno" type="number" placeholder="e.g. 123">
+                <input id="cvcNo" maxlength="3" name="cvcno" type="text" placeholder="e.g. 123">
                 <span class="input__error-msg visually-hidden">Error</span>
               </div>
             </div>
@@ -101,5 +103,6 @@
       </div>
     </footer>
   </div>
+  <script src="./js/main.js"></script>
 </body>
 </html>
