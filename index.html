@@ -45,16 +45,33 @@
         </div>
       </div>
       <div class="form__box">
-        <form id="ccForm" class="form" action="" post="" enctype="multipart/form-data">
+        <form id="ccForm" class="form">
           <h1 class="visually-hidden">Example of an interactive Web Form</h1>
           <div class="input__box">
             <label for="username" class="input__label">Cardholder Name</label>
-            <input id="username" name="username" type="text" value="" placeholder="e.g. Jane Appleseed">
+            <input 
+              id="username"
+              maxlength="90" 
+              name="username" 
+              type="text" 
+              data-letters="^[A-Za-z- .]+$" 
+              pattern="^[A-Za-z- .]+$" 
+              required
+              placeholder="e.g. Jane Appleseed"
+            >
             <span class="input__error-msg visually-hidden">Error</span>
           </div>
           <div class="input__box">
             <label for="cardNo" class="input__label">Card Number</label>
-            <input id="cardNo" maxlength="19" name="cardno" type="text" placeholder="e.g. 1234 5678 9123 0000">
+            <input 
+              id="cardNo" 
+              maxlength="19" 
+              name="cardno" 
+              type="text" 
+              data-format="^[0-9]{4}[ ][0-9]{4}[ ][0-9]{4}[ ][0-9]{4}$"
+              pattern="^[0-9]{4}[ ][0-9]{4}[ ][0-9]{4}[ ][0-9]{4}$"
+              required
+              placeholder="e.g. 1234 5678 9123 0000">
             <span class="input__error-msg visually-hidden">Error</span>
           </div>
           <div class="fieldset__box">
@@ -64,18 +81,47 @@
                 <div class="date__box">
                   <div class="input__box">
                     <label for="month" class="input__label visually-hidden">Month</label>
-                    <input id="month" maxlength="2" name="month" type="text" placeholder="MM">
+                    <input
+                      id="month"
+                      maxlength="2" 
+                      name="month"
+                      type="text"
+                      data-numbers="^[0-9]+$" 
+                      pattern="^[0-9]+$"
+                      required 
+                      placeholder="MM"
+                    >
                   </div>
                   <div class="input__box">
                     <label for="year" class="input__label visually-hidden">Year</label>
-                    <input id="year" maxlength="2" name="year" type="text" placeholder="YY">
+                    <input
+                      id="year" 
+                      maxlength="2" 
+                      name="year" 
+                      type="text" 
+                      data-numbers="^[0-9]+$"
+                      data-year="YY"
+                      pattern="^[0-9]+$" 
+                      required 
+                      placeholder="YY"
+                    >
                   </div>
                 </div>
                 <span class="input__error-msg visually-hidden">Error</span>
               </fieldset>
               <div class="input__box">
                 <label for="cvcNo" class="input__label">CVC</label>
-                <input id="cvcNo" maxlength="3" name="cvcno" type="text" placeholder="e.g. 123">
+                <input
+                  id="cvcNo" 
+                  minlength="3" 
+                  maxlength="3" 
+                  name="cvcno" 
+                  type="text" 
+                  data-numbers="^[0-9]+$" 
+                  pattern="^[0-9]+$" 
+                  required 
+                  placeholder="e.g. 123"
+                >
                 <span class="input__error-msg visually-hidden">Error</span>
               </div>
             </div>
@@ -92,7 +138,7 @@
           <p class="response__message">
             We've added your card details
           </p>
-          <button class="btn response__btn" type="button">Continue</button>
+          <button id="resetBtn" class="btn response__btn" type="reset">Continue</button>
         </div>
       </div>
     </main>
