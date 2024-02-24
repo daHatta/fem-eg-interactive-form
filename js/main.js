@@ -1,8 +1,14 @@
 "use strict";
 
 // ### Variables
-
-let errors = [];
+// Variable to check status for continue display 
+let confirmed = [ 
+    { id: 0, item: "username", isValid: false},
+    { id: 1, item: "cardnumber", isValid: false},
+    { id: 2, item: "month", isValid: false},
+    { id: 3, item: "year", isValid: false},
+    { id: 4, item: "cvc", isValid: false}
+];
 
 // V Live Update
 // output
@@ -17,19 +23,21 @@ const cardOwnerInput = document.querySelector("#username");
 const cardNumberInput = document.querySelector("#cardNo");
 const cardMonthInput = document.querySelector("#month");
 const cardYearInput = document.querySelector("#year");
-const cvcInput = document.querySelector("#cvcNo");
+const cvcNumberInput = document.querySelector("#cvcNo");
 
 // states
-const formDisplay = document.querySelector("#ccForm");
-const successDisplay = document.querySelector(".response__box");  
+const confirmDisplay = document.querySelector("#ccForm");
+const continueDisplay = document.querySelector(".continue__box"); 
+
+// buttons
+const confirmBtn = document.getElementById("confirmBtn");
+const continueBtn = document.getElementById("continueBtn");
+
 
 // ### Functions
-
 // V Live Update
 // Callback function for input event
 function handleByInput(event) {
-
-    //console.log("Current Target: ", e.currentTarget.id);
 
     let currentTargetId = event.currentTarget.id;
 
@@ -42,148 +50,149 @@ function handleByInput(event) {
     } else if (currentTargetId === "year") {
         cardYear.innerText = cardYearInput.value !== "" ? cardYearInput.value : "00";
     } else if (currentTargetId === "cvcNo") {
-        cvcNumber.innerText = cvcInput.value !== "" ? cvcInput.value : "000";
+        cvcNumber.innerText = cvcNumberInput.value !== "" ? cvcNumberInput.value : "000";
     }
 
 };
 
-// Callback function for copy event
-function handleByCopy(event) {
-
-    const selection = document.getSelection();
-    event.clipboardData.setData("text/plan", selection.toString());
-
-    event.preventDefault();
-};
 
 // V Validation
-// Function for validation
-const validateForm = (formId) => {
+// Helper functions for validation
+// Setting error message
+function setError(input, message) {
 
-    //console.log("FORM ID ", formId);
+    if (input.id === "month" || input.id === "year") {
+        const fieldSet = input.parentElement.parentElement.parentElement;
+        const errorDisplay = fieldSet.querySelector(".error-msg-display");
+        input.setAttribute("class", "input--error");
+        errorDisplay.className = "error-msg-display";
+        errorDisplay.innerText = message;
+    } else {
+        const inputBox = input.parentElement;
+        const errorDisplay = inputBox.querySelector(".error-msg-display");
+        input.setAttribute("class", "input--error");
+        errorDisplay.className = "error-msg-display";
+        errorDisplay.innerText = message;
+    }
+};
 
-    // Select form
-    const formElement = document.querySelector(formId);
+// Setting success state
+function setSuccess(input) {
 
-    // Validation options
-    const validationOptions = [
-        {
-            attribute: "data-letters",
-            isValid: (input) => {
-                const patternRegex = new RegExp(input.dataset.letters);
-                return patternRegex.test(input.value);
-            },
-            errorMessage: () => "Letters, 'Space', '-' only!",
-        },
-        {
-            attribute: "data-format",
-            isValid: (input) => {
-                const patternRegex = new RegExp(input.dataset.format);
-                return patternRegex.test(input.value);
-            },
-            errorMessage: () => "Wrong format. Numbers and 'Space' only!" 
-        },
-        {
-            attribute: "required",
-            isValid: input => input.value.trim() !== "",
-            errorMessage: () => "Can't be blank!",
-        }
-    ];
-
-    // Function to validate a single field
-    const validateSingleField = (fieldToValidate) => {
-
-        const label = fieldToValidate.querySelector("label");
-        const input = fieldToValidate.querySelector("input");
-        
-        let errorMessage = "";
-        let inputId = input.getAttribute("id");
-        
-        // Use specific output field depending on specific ids 
-        if (inputId === "month" || inputId === "year") {
-            errorMessage = fieldToValidate.parentElement.nextElementSibling;
-        } else {
-            errorMessage = fieldToValidate.querySelector(".input__error-msg");
-        }
-
-        let fieldError = false;
-
-        // Check input field using validation options
-        for (const option of validationOptions) {
-            if (input.hasAttribute(option.attribute) && !option.isValid(input)) {
-                input.setAttribute("class", "input--error");
-                
-                errorMessage.classList.remove("visually-hidden");
-                errorMessage.textContent = option.errorMessage(input, label);
-                
-                fieldError = true;
-            }
-        }
-
-        // Remove error class by removing class attribute if value is correct
-        if (!fieldError) {
-            input.removeAttribute("class");
-            errorMessage.textContent = "";
-            errorMessage.classList.add("visually-hidden");
-        }
-
-        // Search for errors by class name
-        errors = formElement.querySelectorAll(".input--error");
-
-        if (errors.length === 0 ) {
-            formDisplay.classList.add("visually-hidden");
-            successDisplay.classList.remove("visually-hidden");
-        }
-
-    };
-
-    // Function to validate all fields
-    const validateAllFields = (formToValidate) => {
-
-        const fields = Array.from(formToValidate.querySelectorAll(".input__box"));
-        //console.log("FIELDS from Form", fields);
-        fields.forEach((field) => {
-            //console.log("FIELD ", field);
-            validateSingleField(field);
-        });
-    };
-
-    // No browser validation
-    formElement.setAttribute("novalidate", "");
-    
-    // Enable validation for each control whilst updating form
-    Array.from(formElement.elements).forEach(element => 
-            element.addEventListener("blur", event => {
-
-                let form = event.srcElement.parentElement.parentElement;
-                validateAllFields(form);
-            })
-    );
-    
-
-    // Eventlistener on submit of form
-    formElement.addEventListener("submit", (event) => {
-        event.preventDefault();
-        //console.log("FORM ELEMENT", formElement)
-        validateAllFields(formElement);
-    });
+    if (input.id === "month" || input.id === "year") {
+        const fieldSet = input.parentElement.parentElement.parentElement;
+        const errorDisplay = fieldSet.querySelector(".error-msg-display");
+        input.removeAttribute("class");
+        errorDisplay.className = "error-msg-display visually-hidden";
+        errorDisplay.innerText = "";
+    } else {
+        const inputBox = input.parentElement;
+        const errorDisplay = inputBox.querySelector(".error-msg-display");
+        input.removeAttribute("class");
+        errorDisplay.className = "error-msg-display visually-hidden";
+        errorDisplay.innerText = "";
+    }
 
 };
+
+// Checking pattern
+function checkPattern(input) {
+    const regExPattern = new RegExp(input.pattern);
+    return regExPattern.test(input.value);
+};
+
+// Go to next screen after finishing the form successfully
+function processToContinue(list) {
+    
+    let counter = 0;    
+
+    list = confirmed.find(item => {
+        item.isValid === true;
+        counter++;
+    });
+
+    if (counter === 5) {
+        confirmDisplay.classList.add("visually-hidden");
+        continueDisplay.classList.remove("visually-hidden");
+    }
+
+};
+
+
+// Function for validation
+const validateInputs = () => {
+
+    const cardOwnerValue = cardOwnerInput.value.trim();
+    const cardNumberValue = cardNumberInput.value.trim();
+    const cardMonthValue = cardMonthInput.value.trim();
+    const cardYearValue = cardYearInput.value.trim();
+    const cvcNumberValue = cvcNumberInput.value.trim();
+
+    if (cardOwnerValue === "") {
+        setError(cardOwnerInput, "Can't be blank!");
+    } else if (!checkPattern(cardOwnerInput)) {
+        setError(cardOwnerInput, "Wrong format, letters, 'space' and '-' only!");
+    } else {
+        setSuccess(cardOwnerInput);
+        confirmed[0].isValid = true;
+    }
+
+    if (cardNumberValue === "") {
+        setError(cardNumberInput, "Can't be blank!");
+    } else if (!checkPattern(cardNumberInput)) {
+        setError(cardNumberInput, "Wrong format, numbers and 'space' only!");
+    } else {
+        setSuccess(cardNumberInput);
+        confirmed[1].isValid = true;
+    }
+
+    if (cardMonthValue === "") {
+        setError(cardMonthInput, "Can't be blank!");
+    } else if (!checkPattern(cardMonthInput)) {
+        setError(cardMonthInput, "Wrong format, numbers only!");
+    } else {
+        setSuccess(cardMonthInput);
+        confirmed[2].isValid = true;
+    }
+
+    if (cardYearValue === "") {
+        setError(cardYearInput, "Can't be blank!");
+    } else if (!checkPattern(cardYearInput)) {
+        setError(cardYearInput, "Wrong format, numbers only!")
+    } else {
+        setSuccess(cardYearInput);
+        confirmed[3].isValid = true;
+    }
+
+    if (cvcNumberValue === "") {
+        setError(cvcNumberInput, "Can't be blank!");
+    } else if (!checkPattern(cvcNumberInput)) {
+        setError(cvcNumberInput, "Wrong format, numbers only!");
+    } else {
+        setSuccess(cvcNumberInput);
+        confirmed[4].isValid = true;
+    }
+
+    processToContinue(confirmed);
+};
+
 
 // V Form Reset
 // Function for reset
 const resetForm = (formId) => {
 
-    // Getting form, response-display and reset button
+    console.log("RESET all", formId);
+
+    // Getting form by id
     const formElement = document.querySelector(formId);
     
-    // Function to reset a single field
+    // Function to empty a single field
     const resetSingleField = (fieldToReset) => {
         let input = fieldToReset.querySelector("input");
         input.value = "";
     };
 
-    // Function to reset all fields
+    // Function to get all fields by class
     const resetAllFields = (formToReset) => {
         const fields = Array.from(formToReset.querySelectorAll(".input__box"));
 
@@ -192,8 +201,8 @@ const resetForm = (formId) => {
         });
     };
 
-    // Eventlistener on reset button of form
-    resetBtn.addEventListener("click", (event) => {
+    // Eventlistener on continue button
+    continueBtn.addEventListener("click", () => {
 
         cardOwner.innerText = "Jane Appleseed";
         cardNumber.innerText = "0000 0000 0000 0000";
@@ -201,8 +210,8 @@ const resetForm = (formId) => {
         cardYear.innerText = "00";
         cvcNumber.innerText = "000";
 
-        formDisplay.classList.remove("visually-hidden");
-        successDisplay.classList.add("visually-hidden");
+        confirmDisplay.classList.remove("visually-hidden");
+        continueDisplay.classList.add("visually-hidden");
         
         resetAllFields(formElement);
     });
@@ -210,28 +219,20 @@ const resetForm = (formId) => {
 };
 
 
-// ### Function calls
-
-// V Form Validation
-validateForm("#ccForm");
-// V From Reset
+//### Call for functions
 resetForm("#ccForm");
 
 
 // ### Eventlistener
-
 // V Live Update
 // Triggers update on input
 cardOwnerInput.addEventListener("input", handleByInput);
 cardNumberInput.addEventListener("input", handleByInput);
 cardMonthInput.addEventListener("input", handleByInput);
 cardYearInput.addEventListener("input", handleByInput);
-cvcInput.addEventListener("input", handleByInput);
+cvcNumberInput.addEventListener("input", handleByInput);
 
-// Triggers if copied from clipboard
-cardOwnerInput.addEventListener("copy", handleByCopy);
-cardNumberInput.addEventListener("copy", handleByCopy);
-cardMonthInput.addEventListener("copy", handleByCopy);
-cardYearInput.addEventListener("copy", handleByCopy);
-cvcInput.addEventListener("copy", handleByCopy);
-
+confirmDisplay.addEventListener("submit", (event) => {
+    event.preventDefault();
+    validateInputs();
+});

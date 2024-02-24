@@ -71,20 +71,20 @@
     display: flow-root;
 }
 
-.form__btn {
+.confirm__btn {
     margin-block-start: .25em;
 }
 
 // Response if passed
-.response__box {
+.continue__box {
     text-align: center;
 }
 
-.response__image {
+.continue__image {
     margin-inline: auto;
 }
 
-.response__title {
+.continue__title {
     margin-block-start: 1.25em;
     color: $clr-ntl-very-dark-violet;
     text-transform: uppercase;
@@ -93,29 +93,29 @@
     font-weight: $fw-500;
 }
 
-.response__message  {
+.continue__message  {
     color: $clr-ntl-dark-grayish-violet;
     margin-block-start: .875em;
     font-size: 1.125rem;
     letter-spacing: .0125rem;
 }
 
-.response__btn {
+.continue__btn {
     margin-block-start: 2.563em;
 }
 
 // Error Message
-.input__error-msg {
+input.input--error {
+    border: 1px solid $clr-pry-input-red-errors;
+}
+
+.error-msg-display {
     display: flex;
     justify-content: start;
     align-items: end;
     color: $clr-pry-input-red-errors;
     height: 20px;
     font-size: .625rem;
-}
-
-input.input--error {
-    border: 1px solid $clr-pry-input-red-errors;
 }
 
 
@@ -156,7 +156,7 @@ input.input--error {
         width: calc(100% - 6px);
     }
 
-    .form__btn {
+    .confirm__btn {
         margin-block-start: 1em;
     }
     
