@@ -10,6 +10,8 @@ let confirmed = [
     { id: 4, item: "cvc", isValid: false}
 ];
 
+//console.log("BEGINN", confirmed);
+
 // V Live Update
 // output
 const cardOwner = document.querySelector(".owner__name");
@@ -104,17 +106,30 @@ function checkPattern(input) {
 // Go to next screen after finishing the form successfully
 function processToContinue(list) {
     
-    let counter = 0;    
-
-    list = confirmed.find(item => {
-        item.isValid === true;
-        counter++;
+    //console.log(confirmed);
+    let checkList = list;
+    let counter = 0;
+    
+    checkList.find(item => {
+        if (item.isValid === true) {
+            counter++;
+            //console.log(counter);
+        };
     });
 
-    if (counter === 5) {
+    if (counter === 5 && checkList.length === 5) {
+        //console.log("ALL TRUE", confirmed);
         confirmDisplay.classList.add("visually-hidden");
         continueDisplay.classList.remove("visually-hidden");
     }
+
+};
+
+// Reset of confirmed status to fals
+function resetToConfirm(list) {
+
+    list.forEach((item) => item.isValid = false);
+    //console.log("ALL FALSE AGAIN", confirmed);
 
 };
 
@@ -130,8 +145,10 @@ const validateInputs = () => {
 
     if (cardOwnerValue === "") {
         setError(cardOwnerInput, "Can't be blank!");
+        confirmed[0].isValid = false;
     } else if (!checkPattern(cardOwnerInput)) {
         setError(cardOwnerInput, "Wrong format, letters, 'space' and '-' only!");
+        confirmed[0].isValid = false;
     } else {
         setSuccess(cardOwnerInput);
         confirmed[0].isValid = true;
@@ -139,8 +156,10 @@ const validateInputs = () => {
 
     if (cardNumberValue === "") {
         setError(cardNumberInput, "Can't be blank!");
+        confirmed[1].isValid = false;
     } else if (!checkPattern(cardNumberInput)) {
         setError(cardNumberInput, "Wrong format, numbers and 'space' only!");
+        confirmed[1].isValid = false;
     } else {
         setSuccess(cardNumberInput);
         confirmed[1].isValid = true;
@@ -148,8 +167,10 @@ const validateInputs = () => {
 
     if (cardMonthValue === "") {
         setError(cardMonthInput, "Can't be blank!");
+        confirmed[2].isValid = false;
     } else if (!checkPattern(cardMonthInput)) {
         setError(cardMonthInput, "Wrong format, numbers only!");
+        confirmed[2].isValid = false;
     } else {
         setSuccess(cardMonthInput);
         confirmed[2].isValid = true;
@@ -157,8 +178,10 @@ const validateInputs = () => {
 
     if (cardYearValue === "") {
         setError(cardYearInput, "Can't be blank!");
+        confirmed[3].isValid = false;
     } else if (!checkPattern(cardYearInput)) {
         setError(cardYearInput, "Wrong format, numbers only!")
+        confirmed[3].isValid = false;
     } else {
         setSuccess(cardYearInput);
         confirmed[3].isValid = true;
@@ -166,8 +189,10 @@ const validateInputs = () => {
 
     if (cvcNumberValue === "") {
         setError(cvcNumberInput, "Can't be blank!");
+        confirmed[4].isValid = false;
     } else if (!checkPattern(cvcNumberInput)) {
         setError(cvcNumberInput, "Wrong format, numbers only!");
+        confirmed[4].isValid = false;
     } else {
         setSuccess(cvcNumberInput);
         confirmed[4].isValid = true;
@@ -203,6 +228,8 @@ const resetForm = (formId) => {
 
     // Eventlistener on continue button
     continueBtn.addEventListener("click", () => {
+
+        resetToConfirm(confirmed);
 
         cardOwner.innerText = "Jane Appleseed";
         cardNumber.innerText = "0000 0000 0000 0000";
