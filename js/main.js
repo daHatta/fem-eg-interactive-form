@@ -125,7 +125,7 @@ function processToContinue(list) {
 
 };
 
-// Reset of confirmed status to fals
+// Reset of confirmed status to false
 function resetToConfirm(list) {
 
     list.forEach((item) => item.isValid = false);
