@@ -1,27 +1,27 @@
 @use "../abstracts" as *;
 
 .card__box {
+    color: $clr-ntl-white;
     display: flex;
     flex-direction: column-reverse;
-    color: $clr-ntl-white;
 }
 
 .card {
-    width: 286px;
-    height: 157px;
     background-repeat: no-repeat;
     background-size: contain;
-    box-shadow: 0px 15px 32px -3px rgba($color: $clr-ntl-very-dark-violet, $alpha: .2);
     border-radius: 6px;
+    box-shadow: 0px 15px 32px -3px rgba($color: $clr-ntl-very-dark-violet, $alpha: .2);
+    height: 157px;
+    width: 286px;
 }
 
 .card--front {
     background-image: url("../images/bg-card-front.png");
     margin-top: -63px;
-    z-index: 2;
-    padding-inline-start: 1.063em;
     padding-block-start: 1.063em;
     padding-inline-end: 1.188em;
+    padding-inline-start: 1.063em;
+    z-index: 2;
 }
 
 .card--back {
@@ -40,20 +40,20 @@
 
 .card__number {
     font-size: $fs-500;
+    font-weight: $fw-400;
     margin-block-start: 2.125em;
     line-height: 1.1;
     word-spacing: 10px;
-    font-weight: $fw-400;
 }
 
 .card__owner {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin-block-start: 1.5em;
     font-size: .625rem;
     font-weight: $fw-300;
+    justify-content: space-between;
     letter-spacing: 1px;
+    margin-block-start: 1.5em;
 }
 
 .owner__name {
@@ -61,43 +61,43 @@
 }
 
 .card__verification-num {
-    margin-block-start: 6.438em;
-    margin-inline: auto;
-    height: 30px;
-    padding: .25em;
-    padding-inline-end: 1em;
     background-color: hsl(210, 12%, 71%);
     border-radius: 4px;
     font-size: .625rem;
-    text-align: right;
-    line-height: 2.5;
-    width: 240px;
     font-weight: $fw-300;
+    height: 30px;
     letter-spacing: 1px;
+    line-height: 2.5;
+    margin-block-start: 6.438em;
+    margin-inline: auto;
+    padding: .25em;
+    padding-inline-end: 1em;
+    text-align: right;
+    width: 240px;
 }
 
 
 @media screen and (min-width: 1110px) {
     
     .card__box {
-        flex-direction: column;
         color: $clr-ntl-white;
+        flex-direction: column;
         gap: 2em;
         width: 541px;
     }
 
     .card {
-        width: 447px;
-        height: 245px;
         border-radius: 10px;
+        height: 245px;
+        width: 447px;
     }
 
     .card--front {
-        margin-top: 0;
         margin-inline-end: auto;
-        padding-inline-start: 1.75em;
+        margin-top: 0;
         padding-block-start: 1.5em;
         padding-inline-end: 1.875em;
+        padding-inline-start: 1.75em;
     }
 
     .card--back {
@@ -113,29 +113,29 @@
     }
 
     .card__number {
-        margin-block-start: 2.438em;
         font-size: 1.75rem;
-        letter-spacing: .2rem;
         font-weight: $fw-400;
+        letter-spacing: .2rem;
+        margin-block-start: 2.438em;
         word-spacing: -1px;
     }
 
     .card__owner {
-        margin-block-start: 1.938em;
         font-size: .875rem;
         letter-spacing: .2rem;
+        margin-block-start: 1.938em;
     }
 
     .card__verification-num {
-        margin-block-start: 7.75em;
+        font-size: .813rem;
+        font-weight: $fw-300;
         height: 38px;
+        letter-spacing: .2rem;
+        line-height: 1.75rem;
+        margin-block-start: 7.75em;
         padding: .5em;
         padding-inline-end: 1.125em;
-        font-size: .813rem;
         text-align: right;
-        line-height: 1.75rem;
         width: 363px;
-        font-weight: $fw-300;
-        letter-spacing: .2rem;
     }
 }

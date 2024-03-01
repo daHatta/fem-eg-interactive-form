@@ -1,33 +1,33 @@
 @use "../abstracts" as *;
 
 body {
-    font-size: $fs-500;
     background-color: $clr-ntl-white ;
+    font-size: $fs-500;
 }
 
 body::before {
-    position: absolute;
-    display: block;
-    content: "";
+    background-color: $clr-ntl-very-dark-violet;
     background-image: url("../images/bg-main-mobile.png");
     background-position: top center;
-    background-color: $clr-ntl-very-dark-violet;
     background-repeat: no-repeat;
-    width: 100%;
+    content: "";
+    display: block;
     height: 240px;
+    position: absolute;
+    width: 100%;
     z-index: -1;
 }
 
 main {
-    padding-block-start: 1.75em;
     display: flex;
     flex-direction: column;
+    padding-block-start: 1.75em;
 }
 
 fieldset {
     border: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 input {
@@ -43,8 +43,8 @@ input[type="number"]:active,
 input[type="number"]:focus-visible {
     background: linear-gradient(white, white) padding-box,
                 linear-gradient(to right, $clr-pry-input-border-active) border-box;
-    border-radius: 8px;
     border: 1px solid transparent;
+    border-radius: 8px;
 }
 
 input[type="text"]:hover,
@@ -58,11 +58,11 @@ input[type="text"] {
 
 input[type="text"],
 input[type="number"] {
-    display: flex;
-    border-radius: 8px;
     border: 1px solid $clr-ntl-light-grayish-violet;
-    padding-block: .625em .563em;
+    border-radius: 8px;
+    display: flex;
     font-size: 1rem;
+    padding-block: .625em .563em;
     padding-inline: .563em;
     text-indent: 5px;
 }
@@ -78,17 +78,17 @@ input::placeholder {
     body::before {
         background-image: url("../images/bg-main-desktop.png");
         background-position: top left;
-        width: 483px;
         min-height: 100vh;
         min-height: 100dvh;
+        width: 483px;
     }
 
     main {
-        padding-block-start: 0;
-        flex-direction: row;
-        justify-content: center;
         align-items: center;
+        flex-direction: row;
         gap: 6.625em;
+        justify-content: center;
+        padding-block-start: 0;
     }
     
     footer {
@@ -98,8 +98,8 @@ input::placeholder {
     input[type="text"],
     input[type="number"] {
         font-size: 1.125rem;
-        text-indent: .375rem;
         padding-block: .5em .438em;
+        text-indent: .375rem;
     }
 
     input::placeholder {

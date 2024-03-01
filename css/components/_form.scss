@@ -11,18 +11,18 @@
 }
 
 .input__label {
-    display: block;
     color: $clr-ntl-very-dark-violet;
+    display: block;
     letter-spacing: 2px;
 }
 
 .input__label,
 .fieldset__legend {
-    text-transform: uppercase;
     font-size: .75rem;
     font-weight: $fw-700;
     line-height: 1.1;
     margin-block-end: .75em;
+    text-transform: uppercase;
 }
 
 .fieldset__box {
@@ -35,8 +35,8 @@
 
 .fieldset__grid {
     display: grid;
-    grid-template-columns: 152px 164px;
     gap: 1.25em;
+    grid-template-columns: 152px 164px;
 }
 
 .date__box {
@@ -55,16 +55,16 @@
 }
 
 .btn {
+    background-color: $clr-ntl-very-dark-violet;
     border: none;
     border-radius: 8px;
-    display: block;
     color: $clr-ntl-white;
-    background-color: $clr-ntl-very-dark-violet;
-    text-align: center;
+    cursor: pointer;
+    display: block;
     padding-block: .688em;
     padding-inline: auto;
+    text-align: center;
     width: 100%;
-    cursor: pointer;
 }
 
 .form__control {
@@ -85,19 +85,19 @@
 }
 
 .continue__title {
-    margin-block-start: 1.25em;
     color: $clr-ntl-very-dark-violet;
-    text-transform: uppercase;
-    letter-spacing: 2px;
     font-size: 1.75rem;
     font-weight: $fw-500;
+    letter-spacing: 2px;
+    margin-block-start: 1.25em;
+    text-transform: uppercase;
 }
 
 .continue__message  {
     color: $clr-ntl-dark-grayish-violet;
-    margin-block-start: .875em;
     font-size: 1.125rem;
     letter-spacing: .0125rem;
+    margin-block-start: .875em;
 }
 
 .continue__btn {
@@ -110,20 +110,20 @@ input.input--error {
 }
 
 .error-msg-display {
-    display: flex;
-    justify-content: start;
     align-items: end;
     color: $clr-pry-input-red-errors;
-    height: 20px;
+    display: flex;
     font-size: .625rem;
+    height: 20px;
+    justify-content: start;
 }
 
 
 @media screen and (min-width: 1110px) {
 
     .form__box {
-        width: 397px;
         margin-block-start: 2px;
+        width: 397px;
     }
 
     .input__box {
@@ -133,14 +133,14 @@ input.input--error {
     .input__label,
     .fieldset__legend {
         letter-spacing: .125rem;
-        word-spacing: 0px;
         margin-block-end: .625em;
+        word-spacing: 0px;
     }
 
     .fieldset__grid {
         display: grid;
-        grid-template-columns: 170px 194px;
         gap: 1.25em;
+        grid-template-columns: 170px 194px;
     }
 
     .date__box {
